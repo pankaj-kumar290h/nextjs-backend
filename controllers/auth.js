@@ -13,7 +13,7 @@ exports.signin = (req, res) => {
 
   User.findOne({ username }, (err, user) => {
     if (err || !user) {
-      return res.status(400).json({ error: "No user Found" });
+      return res.status(400).json({ error: err });
     }
     if (user.password !== password) {
       return res.status(400).json({ error: "Username and passwod not match" });
