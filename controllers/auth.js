@@ -6,14 +6,14 @@ const { validationResult } = require("express-validator");
 exports.signin = (req, res) => {
   const error = validationResult(req); ////////validation /////////
   if (!error.isEmpty()) {
-    console.log(error);
+   
     return res.status(400).json({ error: error.array() });
   }
   const { username, password } = req.body;
 
   User.findOne({ username }, (err, user) => {
     if (err || !user) {
-      return res.status(400).json({ error: "No user Found" });
+      return res.status(400).json({ error: err });
     }
     if (user.password !== password) {
       return res.status(400).json({ error: "Username and passwod not match" });
