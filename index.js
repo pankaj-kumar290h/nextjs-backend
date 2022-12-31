@@ -35,6 +35,11 @@ mongoose
     console.log("db connected");
   });
 
+////////testing//////////
+app.get("/", (req, res) => {
+  res.json({ msg: "working" });
+});
+
 let PORT = process.env.PORT || 5000;
 /////////////////////////listening///////////////////
 app.listen(PORT, () => {
