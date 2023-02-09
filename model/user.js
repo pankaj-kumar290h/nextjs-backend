@@ -20,6 +20,9 @@ const userSchema = new mongoose.Schema(
       require: true,
       trime: true,
     },
+    cart:{
+      type:Array,
+    }
   },
   { timestamps: true }
 );

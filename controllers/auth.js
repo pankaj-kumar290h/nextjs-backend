@@ -13,7 +13,8 @@ exports.signin = (req, res) => {
 
   User.findOne({ username }, (err, user) => {
     if (err || !user) {
-      return res.status(400).json({ error: err });
+    
+      return res.status(400).json({ error: err });   
     }
     if (user.password !== password) {
       return res.status(400).json({ error: "Username and passwod not match" });
@@ -28,13 +29,14 @@ exports.signin = (req, res) => {
 exports.signup = (req, res) => {
   const error = validationResult(req);
   if (!error.isEmpty()) {
+    
     return res.status(400).json({ error: error.array() });
   }
 
   const user = new User(req.body);
   user.save((err, result) => {
     if (err) {
-      console.log(err.code);
+    
       return res.status(400).json({ error: "username or email already exits" });
     }
     res.json({

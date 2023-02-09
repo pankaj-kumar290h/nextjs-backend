@@ -7,7 +7,7 @@ const app = express();
 
 require("dotenv").config();
 
-//////////not that much work experince with node but i try my best//////////
+
 
 /////////////////////routes import///////////
 const authRouters = require("./routes/auth");
@@ -25,7 +25,7 @@ app.use("/api", taskRoutes);
 
 /////////////////////momgodb connection//////////
 mongoose.set("strictQuery", true);
-///////////these url goes to env file for simplicty used directly/////////
+
 mongoose
   .connect(process.env.MongoUrl, {
     useNewUrlParser: true,
